@@ -101,7 +101,7 @@ export default function AboutUs() {
             <div className="md:w-1/2 md:pl-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Story</h2>
               <p className="text-gray-600 mb-4">
-                Founded in 2020 in Nepal by Utsab Khadka, Kalamkunja began with a simple
+                Founded in 2025 in Nepal by Utsab Adhikari, Kalamkunja began with a simple
                 goal: to level the playing field for knowledge sharing regardless of
                 background or location.
               </p>
