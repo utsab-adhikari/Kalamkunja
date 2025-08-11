@@ -6,7 +6,7 @@ export async function generateMetadata({ params }) {
   let user = null;
 
   try {
-    const res = await fetch(`http://localhost:3000/api/v1/profile/${email}`, {
+    const res = await fetch(`${process.env.baseUrl}/api/v1/profile/${email}`, {
       next: { revalidate: 60 },
     });
     const data = await res.json();

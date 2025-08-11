@@ -1,16 +1,16 @@
 import React from "react";
 import CategoryArticlesPage from "./CategoryArticlesPage";
 
-
-
 export async function generateMetadata({ params }) {
-  const { id } = await params; 
+  const { id } = await params;
 
   let category = null;
 
   try {
-    const baseUrl = process.env.BASE_URL || "http://localhost:3000"; 
-    const res = await fetch(`${baseUrl}/api/v1/category/${id}`, { cache: "no-store" }); 
+    const baseUrl = process.env.baseUrl;
+    const res = await fetch(`${baseUrl}/api/v1/category/${id}`, {
+      cache: "no-store",
+    });
     const data = await res.json();
 
     if (data.success) {
@@ -21,14 +21,16 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: category ? `${category.category} | Kalamkunja` : "Category Not Found",
+    title: category
+      ? `${category.category} | Kalamkunja`
+      : "Category Not Found",
     description: category?.description || "Explore articles in this category",
     openGraph: {
       title: category?.category || "Category Not Found",
       description: category?.description || "Explore articles in this category",
       images: [
         {
-          url: "/default-og.jpg", 
+          url: "/default-og.jpg",
           width: 1200,
           height: 630,
           alt: category?.category || "Category image",
@@ -46,7 +48,6 @@ export async function generateMetadata({ params }) {
     },
   };
 }
-
 
 export default async function page({ params }) {
   const { id } = await params;

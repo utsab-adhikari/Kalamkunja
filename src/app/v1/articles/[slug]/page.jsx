@@ -7,8 +7,7 @@ export async function generateMetadata({ params }) {
   let article = null;
 
   try {
-    const baseUrl = "http://localhost:3000"; // Change to production URL if deploying
-    const res = await fetch(`${baseUrl}/api/v1/articles/${slug}`);
+    const res = await fetch(`${process.env.baseUrl}/api/v1/articles/${slug}`);
     const data = await res.json();
     if (data.success) article = data.article;
   } catch (error) {
