@@ -1,5 +1,6 @@
 import React from "react";
 import ArticleDetails from "./articlePage";
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
