@@ -212,8 +212,8 @@ export default function Navbar() {
                 className="flex items-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <div className="bg-blue-600 text-white font-bold text-xl p-2 rounded">
-                  N
+                <div className="bg-black text-white font-bold text-xl p-2 rounded">
+                  K
                 </div>
                 <span className="ml-2 text-xl font-semibold text-gray-900">
                   Kalamkunja
