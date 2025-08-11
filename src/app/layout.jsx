@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "Kalamkunja",
     images: [
       {
-        url: "https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png", // your social preview image
+        url: "https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png",
         width: 1200,
         height: 630,
         alt: "Kalamkunja - Explore The Core",
@@ -26,14 +26,6 @@ export const metadata = {
     ],
     locale: "en_US",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kalamkunja - Explore The Core",
-    description: "Dive deep into insightful articles and share your knowledge.",
-    images: [
-      "https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png",
-    ],
   },
 };
 
