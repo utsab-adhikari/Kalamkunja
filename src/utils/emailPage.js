@@ -4,7 +4,7 @@ export const htmlVerify = (token) => {
     <div style="font-family: 'Segoe UI', sans-serif; background-color: #f5f7fa; padding: 40px;">
       <div style="max-width: 600px; margin: auto; background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
         <div style="text-align: center;">
-          <img src="https://kalamkunja.vercel.app/logo.png" alt="Kalamkunja" style="width: 60px;"/>
+          <img src="https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png" alt="Kalamkunja" style="width: 60px;"/>
           <h1 style="color: #2c3e50;">Verify Your Email</h1>
         </div>
         <p style="color: #34495e; font-size: 16px;">
