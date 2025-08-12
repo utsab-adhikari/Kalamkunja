@@ -39,7 +39,7 @@ export default function Signup() {
       // Assuming your backend handles signup and returns success
       const res = await axios.post("/api/v1/auth/signup", formData);
       if (res.data.success) {
-        router.push("/auth/login"); // Redirect to login after successful signup
+        router.push("/v1/auth/login"); // Redirect to login after successful signup
       } else {
         // Handle cases where backend indicates failure but no error is thrown
         setError(res.data.message || "Signup failed. Please try again.");
