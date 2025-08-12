@@ -32,6 +32,9 @@ const followingSchema = new mongoose.Schema(
 const UserSchema = new mongoose.Schema({
   name: String,
   email: { type: String, unique: true },
+  password: {
+    type: String,
+  }
   image: String,
   role: { type: String, enum: ['user', 'admin', 'creator'], default: 'user' },
   badge: {
