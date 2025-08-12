@@ -2,12 +2,24 @@
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
+import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 export default function VerifyEmailPage() {
   const { token } = useParams();
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [statusMsg, setStatusMsg] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      return;
+    } else if (status === "authenticated" || session) {
+      toast.error("Already Signed In");
+      router.push("/");
+    }
+  }, [session, status, router]);
 
   const handleVerify = async () => {
     setLoading(true);

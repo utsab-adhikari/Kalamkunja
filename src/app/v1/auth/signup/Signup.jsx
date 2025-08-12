@@ -4,13 +4,28 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import Link from "next/link"; // Import Link for internal navigation
 import { FcGoogle } from "react-icons/fc"; // Import Google icon
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 export default function Signup() {
+  const { data: session, status } = useSession();
   const router = useRouter();
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      return;
+    } else if (status === "authenticated" || session) {
+      toast.error("Already Signed In");
+      router.push("/");
+    }
+  }, [session, status, router]);
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,7 +46,10 @@ export default function Signup() {
       }
     } catch (err) {
       // Catch network errors or errors thrown by the backend
-      setError(err.response?.data?.message || "An unexpected error occurred during signup. Please try again later.");
+      setError(
+        err.response?.data?.message ||
+          "An unexpected error occurred during signup. Please try again later."
+      );
       console.error("Signup error:", err);
     } finally {
       setLoading(false); // Set loading to false after response
@@ -68,7 +86,10 @@ export default function Signup() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Full Name
             </label>
             <input
@@ -84,7 +105,10 @@ export default function Signup() {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Email Address
             </label>
             <input
@@ -100,7 +124,10 @@ export default function Signup() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Password
             </label>
             <input
@@ -129,7 +156,9 @@ export default function Signup() {
             <div className="w-full border-t border-gray-300"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-3 bg-white text-gray-500">Or continue with</span>
+            <span className="px-3 bg-white text-gray-500">
+              Or continue with
+            </span>
           </div>
         </div>
 
@@ -144,7 +173,10 @@ export default function Signup() {
 
         <p className="text-sm mt-8 text-center text-gray-600">
           Already have an account?{" "}
-          <Link href="/v1/auth/login" className="text-blue-600 hover:underline font-medium">
+          <Link
+            href="/v1/auth/login"
+            className="text-blue-600 hover:underline font-medium"
+          >
             Login
           </Link>
         </p>

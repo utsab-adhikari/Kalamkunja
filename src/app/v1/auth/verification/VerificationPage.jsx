@@ -1,10 +1,24 @@
 "use client";
 import { useState } from "react";
 import axios from "axios";
+import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function SendVerificationPage() {
   const [loading, setLoading] = useState(false);
+  const { data: session, status } = useSession();
   const [msg, setMsg] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      return;
+    } else if (status === "authenticated" || session) {
+      toast.error("Already Signed In");
+      router.push("/");
+    }
+  }, [session, status, router]);
 
   const sendVerification = async () => {
     setLoading(true);
