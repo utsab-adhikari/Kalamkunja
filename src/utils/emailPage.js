@@ -11,7 +11,7 @@ export const htmlVerify = (token) => {
           Hello! Thanks for joining <strong>Kalamkunja</strong>. To activate your account, please verify your email by clicking the button below:
         </p>
         <div style="text-align: center; margin: 25px 0;">
-          <a href="http://localhost:3000/v1/auth/verification/${token}" 
+          <a href="${process.env.baseUrl}/v1/auth/verification/${token}" 
             style="background-color: #007BFF; color: #fff; padding: 12px 20px; border-radius: 6px; text-decoration: none; font-size: 16px;">
             Verify Email
           </a>
