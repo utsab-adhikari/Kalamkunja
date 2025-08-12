@@ -34,7 +34,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: {
     type: String,
-  }
+  },
   image: String,
   role: { type: String, enum: ['user', 'admin', 'creator'], default: 'user' },
   badge: {
