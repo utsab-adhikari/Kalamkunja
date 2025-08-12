@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
         title: "Profile Not Found | Kalamkunja",
         description:
           "The requested user profile could not be found on Kalamkunja.",
-        url: `${process.env.baseUrl}/profile/${email}`,
+        url: `${process.env.baseUrl}/v1/profile/${email}`,
         siteName: "Kalamkunja",
         images: [
           {
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${user.name} | Kalamkunja`,
       description: user.bio || `${user.name}'s profile on Kalamkunja.`,
-      url: `${process.env.baseUrl}/profile/${user.email}`,
+      url: `${process.env.baseUrl}/v1/profile/${user.email}`,
       siteName: "Kalamkunja",
       images: [
         {
