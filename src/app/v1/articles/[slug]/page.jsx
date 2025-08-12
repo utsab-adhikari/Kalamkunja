@@ -46,7 +46,7 @@ export async function generateMetadata({ params }) {
       images: [article?.featuredImage || "/default-twitter.jpg"],
     },
     alternates: {
-      canonical: `/articles/${slug}`,
+      canonical: `/v1/articles/${slug}`,
     },
   };
 }
