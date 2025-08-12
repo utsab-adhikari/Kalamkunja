@@ -18,7 +18,7 @@ export const metadata = {
     title: "Write with Kalamkunja — AI Article Studio",
     description:
       "Generate professional, SEO-optimized articles instantly. Provide a topic or title and Kalamkunja's AI will craft a well-structured, copy-ready article.",
-    url: "https://your-domain.com/write",
+    url: "https://kalamkunja.vercel.app/v1/ai/studio",
     siteName: "Kalamkunja",
     images: [
       {
