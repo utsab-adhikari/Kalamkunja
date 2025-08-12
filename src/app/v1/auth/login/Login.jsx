@@ -1,16 +1,27 @@
-"use client"
-import { signIn } from "next-auth/react";
-import { useState } from "react";
+"use client";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc"; // Import Google icon
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function Login() {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // Add loading state
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      return;
+    } else if (status === "authenticated" || session) {
+      toast.error("Already Signed In");
+      router.push("/");
+    }
+  }, [session, status, router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
