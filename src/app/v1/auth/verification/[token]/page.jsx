@@ -12,15 +12,6 @@ export default function VerifyEmailPage() {
   const [statusMsg, setStatusMsg] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      return;
-    } else if (status === "authenticated" || session) {
-      toast.error("Already Signed In");
-      router.push("/");
-    }
-  }, [session, status, router]);
-
   const handleVerify = async () => {
     setLoading(true);
     setStatusMsg("Verifying...");

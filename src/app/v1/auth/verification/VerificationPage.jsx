@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
@@ -13,9 +13,12 @@ export default function SendVerificationPage() {
 
   useEffect(() => {
     if (status === "unauthenticated") {
+      toast.error("Login First");
+      router.push("/v1/auth/login");
+    } else if (status === "authenticated" && !session.user.isVerified) {
       return;
-    } else if (status === "authenticated" || session) {
-      toast.error("Already Signed In");
+    } else if (status === "authenticated" && session.user.isVerified) {
+      toast.error("Already Verified");
       router.push("/");
     }
   }, [session, status, router]);
