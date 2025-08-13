@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState, useRef } from "react";
 import toast from "react-hot-toast";
 import { FiCopy, FiDownload, FiLoader } from "react-icons/fi";
+import ErrorDisplay from "./ErrorDisplay";
 
 export default function AIWriter() {
   const [title, setTitle] = useState("");
@@ -46,11 +47,14 @@ META_DESCRIPTION: <your meta description>
 
     setLoading(true);
     try {
-      const response = await fetch("/api/v1/ai/chatbot", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: buildPrompt(title) }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_EXPRESS_URL}/v1/ai/studio`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: buildPrompt(title) }),
+        }
+      );
 
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
@@ -60,7 +64,6 @@ META_DESCRIPTION: <your meta description>
       const data = await response.json();
       const aiText = data?.message || "";
 
-      // parse META lines if provided
       const metaTitleMatch = aiText.match(/META_TITLE:\s*(.*)/i);
       const metaDescMatch = aiText.match(/META_DESCRIPTION:\s*(.*)/i);
 
@@ -84,7 +87,6 @@ META_DESCRIPTION: <your meta description>
         });
       }, 200);
     } catch (err) {
-      console.error(err);
       setError(err.message || "Something went wrong");
     } finally {
       setLoading(false);
@@ -177,12 +179,7 @@ META_DESCRIPTION: <your meta description>
           </div>
         </div>
       </form>
-
-      {error && (
-        <div className="mt-4 bg-red-50 border border-red-200 p-3 text-red-700">
-          {error}
-        </div>
-      )}
+      <ErrorDisplay error={error} />
 
       <div ref={outputRef} className="mt-6">
         {loading && (
