@@ -22,13 +22,13 @@ export const metadata = {
 };
 
 export default function CookiePolicy() {
-  const lastUpdatedDate = "August 6, 2025";
+  const lastUpdatedDate = "August 14, 2025";
 
   return (
     <>
-      <div className="min-h-screen bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="bg-white shadow-lg rounded-2xl overflow-hidden">
+      <div className="">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="bg-white shadow-lg overflow-hidden">
             <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-4 sm:px-6 lg:px-8 py-8">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
                 Cookie Policy
@@ -207,10 +207,10 @@ export default function CookiePolicy() {
                     If you have any questions about our Cookie Policy, please
                     contact us at{" "}
                     <Link
-                      href="mailto:privacy@Kalamkunja.com"
+                      href="mailto:privacy@kalamkunja.com"
                       className="text-blue-600 hover:underline"
                     >
-                      privacy@Kalamkunja.com
+                      privacy@kalamkunja.com
                     </Link>
                     .
                   </p>

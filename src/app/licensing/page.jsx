@@ -49,10 +49,10 @@ export default function Licensing() {
   ];
 
   return (
-    <div className="">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full">
+      <div className="mx-auto py-10">
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 p-5">
           <div className="inline-flex items-center justify-center bg-blue-100 text-blue-600 rounded-full p-3 mb-6">
             <FaBalanceScale className="h-8 w-8" />
           </div>
@@ -65,11 +65,11 @@ export default function Licensing() {
         </div>
 
         {/* License Types */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 p-4">
           {licenses.map((license, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="bg-white shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <div className="flex justify-center mb-4">{license.icon}</div>
               <h3 className="text-lg sm:text-xl font-semibold text-center text-gray-800 mb-3">
@@ -101,7 +101,7 @@ export default function Licensing() {
         </div>
 
         {/* Detailed License Info */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+        <div className="bg-white shadow-lg mb-12 mx-4">
           <div className="bg-gray-800 text-white px-4 sm:px-6 py-4">
             <h2 className="text-lg sm:text-xl font-semibold">Detailed Licensing Terms</h2>
           </div>
@@ -159,7 +159,7 @@ export default function Licensing() {
                 <p className="text-gray-600 text-sm sm:text-base">
                   If you have questions about our licensing terms, please contact us at{' '}
                   <Link href="mailto:licensing@Kalamkunja.com" className="text-blue-600 hover:underline">
-                    licensing@Kalamkunja.com
+                    licensing@kalamkunja.com
                   </Link>.
                 </p>
               </section>
@@ -168,12 +168,12 @@ export default function Licensing() {
         </div>
 
         {/* License Comparison */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="bg-gray-800 text-white px-4 sm:px-6 py-4">
+        <div className="">
+          <div className="bg-gray-800 text-white px-4 sm:px-6 py-4 mx-4">
             <h2 className="text-lg sm:text-xl font-semibold">License Comparison</h2>
           </div>
-          <div className="p-4 sm:p-6 lg:p-8 overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg">
+          <div className="p-4 sm:p-6 lg:p-8">
+            <table className="min-w-full  shadow-xl divide-y divide-gray-200 border border-gray-200 rounded-lg">
               <thead className="bg-gray-50">
                 <tr>
                   <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sm:px-6">

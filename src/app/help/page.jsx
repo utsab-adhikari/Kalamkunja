@@ -51,7 +51,7 @@ export default function HelpCenter() {
 
   return (
     <div className="">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <div className="mx-auto px-4 sm:px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center bg-blue-100 text-blue-600 rounded-full p-3 mb-6">
@@ -83,7 +83,7 @@ export default function HelpCenter() {
         {/* Help Categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {categories.map((category, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div key={index} className="bg-white shadow-md p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-4">
                 {category.icon}
                 <h3 className="ml-3 text-lg font-semibold text-gray-900">{category.title}</h3>
@@ -100,7 +100,7 @@ export default function HelpCenter() {
         </div>
 
         {/* Popular Articles */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden mb-16">
+        <div className="bg-white shadow-md overflow-hidden mb-16">
           <div className="bg-gray-800 text-white px-6 py-4">
             <h2 className="text-xl font-semibold">Popular Help Articles</h2>
           </div>
@@ -146,7 +146,7 @@ export default function HelpCenter() {
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-white rounded-xl shadow-md overflow-hidden">
+        <div className="bg-white shadow-md overflow-hidden">
           <div className="bg-gray-800 text-white px-6 py-4">
             <h2 className="text-xl font-semibold">Frequently Asked Questions</h2>
           </div>
@@ -160,7 +160,7 @@ export default function HelpCenter() {
               ))}
             </div>
             
-            <div className="mt-8 bg-blue-50 rounded-lg p-6">
+            <div className="mt-8 bg-blue-50 p-6">
               <div className="flex flex-col md:flex-row md:items-center">
                 <div className="md:w-2/3 mb-4 md:mb-0">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Still need help?</h3>

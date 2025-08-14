@@ -23,7 +23,7 @@ export default function Community() {
   return (
     <>
       <div className="">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
               Kalamkunja Community
@@ -34,7 +34,7 @@ export default function Community() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white transition-all duration-300 hover:shadow-lg">
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-6 text-white transition-all duration-300 hover:shadow-lg">
               <div className="flex items-center mb-4">
                 <FaUsers className="text-3xl mr-4" />
                 <h2 className="text-lg sm:text-xl font-bold">Community Hub</h2>
@@ -50,7 +50,7 @@ export default function Community() {
               </Link>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-6 text-white transition-all duration-300 hover:shadow-lg">
+            <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-6 text-white transition-all duration-300 hover:shadow-lg">
               <div className="flex items-center mb-4">
                 <FaMedal className="text-3xl mr-4" />
                 <h2 className="text-lg sm:text-xl font-bold">Contributor Program</h2>
@@ -66,7 +66,7 @@ export default function Community() {
               </Link>
             </div>
 
-            <div className="bg-gradient-to-br from-green-600 to-teal-600 rounded-2xl p-6 text-white transition-all duration-300 hover:shadow-lg">
+            <div className="bg-gradient-to-br from-green-600 to-teal-600 p-6 text-white transition-all duration-300 hover:shadow-lg">
               <div className="flex items-center mb-4">
                 <FaHandsHelping className="text-3xl mr-4" />
                 <h2 className="text-lg sm:text-xl font-bold">Mentorship</h2>
@@ -83,7 +83,7 @@ export default function Community() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+          <div className="bg-white shadow-lg overflow-hidden mb-12">
             <div className="bg-gray-800 text-white px-4 sm:px-6 py-4">
               <h2 className="text-lg sm:text-xl font-semibold">Upcoming Events</h2>
             </div>
@@ -129,7 +129,7 @@ export default function Community() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="bg-white shadow-lg overflow-hidden">
             <div className="bg-gray-800 text-white px-4 sm:px-6 py-4">
               <h2 className="text-lg sm:text-xl font-semibold">Connect With Us</h2>
             </div>

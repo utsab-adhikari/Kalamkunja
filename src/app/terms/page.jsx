@@ -20,13 +20,13 @@ export const metadata = {
 };
 
 export default function TermsAndConditions() {
-  const lastUpdatedDate = "August 6, 2025";
+  const lastUpdatedDate = "August 14, 2025";
 
   return (
     <>
       <div className="">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="bg-white shadow-lg rounded-2xl overflow-hidden">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="bg-white shadow-lg overflow-hidden">
             <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-4 sm:px-6 lg:px-8 py-8">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
                 Terms and Conditions
@@ -46,10 +46,10 @@ export default function TermsAndConditions() {
                     Welcome to Kalamkunja! These Terms and Conditions govern your use
                     of our website located at{" "}
                     <Link
-                      href="https://Kalamkunja.com"
+                      href="https://kalamkunja.com"
                       className="text-blue-600 hover:underline"
                     >
-                      Kalamkunja.com
+                      kalamkunja.com
                     </Link>{" "}
                     and any related services provided by Kalamkunja.
                   </p>
@@ -135,7 +135,7 @@ export default function TermsAndConditions() {
                       href="mailto:legal@Kalamkunja.com"
                       className="text-blue-600 hover:underline"
                     >
-                      legal@Kalamkunja.com
+                      legal@kalamkunja.com
                     </Link>
                     .
                   </p>

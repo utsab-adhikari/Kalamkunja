@@ -5,10 +5,9 @@ import {
   FaUsers,
   FaGlobe,
   FaLightbulb,
-  FaChartLine
+  FaChartLine,
 } from "react-icons/fa";
 
-// SEO metadata for App Router
 export const metadata = {
   title: "About Us | Kalamkunja",
   description:
@@ -20,7 +19,7 @@ export const metadata = {
     "mission",
     "vision",
     "Kalamkunja Nepal",
-    "knowledge sharing"
+    "knowledge sharing",
   ],
   alternates: { canonical: "https://Kalamkunja.com/about-us" },
 };
@@ -30,57 +29,54 @@ export default function AboutUs() {
     {
       value: "10K+",
       label: "Active Users",
-      icon: <FaUsers className="text-3xl text-blue-600" />
+      icon: <FaUsers className="text-3xl text-blue-600" />,
     },
     {
       value: "50K+",
       label: "Articles Published",
-      icon: <FaChartLine className="text-3xl text-green-600" />
+      icon: <FaChartLine className="text-3xl text-green-600" />,
     },
     {
       value: "200+",
       label: "Countries Reached",
-      icon: <FaGlobe className="text-3xl text-purple-600" />
+      icon: <FaGlobe className="text-3xl text-purple-600" />,
     },
     {
       value: "24/7",
       label: "Support Available",
-      icon: <FaLightbulb className="text-3xl text-orange-600" />
-    }
+      icon: <FaLightbulb className="text-3xl text-orange-600" />,
+    },
   ];
 
   const team = [
     {
       name: "Utsab Adhikari",
       role: "CEO & Founder",
-      bio:
-        "Nepalese tech innovator passionate about democratizing knowledge for all."
+      bio: "Nepalese tech innovator passionate about democratizing knowledge for all.",
     },
     {
       name: "Samin Thapa",
       role: "CTO",
-      bio: "Tech lead with experience in scalable systems and web platforms."
+      bio: "Tech lead with experience in scalable systems and web platforms.",
     },
     {
       name: "Utsab Bhattarai",
       role: "Head of Content",
-      bio:
-        "Publishing expert curating quality content and empowering creators."
+      bio: "Publishing expert curating quality content and empowering creators.",
     },
     {
       name: "Shiba Bhatta",
       role: "Community Lead",
-      bio: "Focused on building an inclusive and engaged user community."
-    }
+      bio: "Focused on building an inclusive and engaged user community.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-
+    <div className="">
+      <div className="mx-auto px-4 sm:px-6 py-12">
         {/* Hero */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center bg-blue-100 text-blue-600 rounded-full p-3 mb-6">
+          <div className="inline-flex items-center justify-center bg-blue-100 text-blue-600 p-3 mb-6">
             <FaRocket className="h-8 w-8" />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -93,22 +89,28 @@ export default function AboutUs() {
         </div>
 
         {/* Our Story */}
-        <section className="bg-white rounded-2xl shadow-md overflow-hidden mb-16">
+        <section className="bg-white shadow-md overflow-hidden mb-16">
           <div className="p-6 sm:p-8 md:flex md:items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 md:h-80" />
+              <img
+                src="https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png"
+                alt="Kalamkunja - Logo"
+                className="bg-gray-200 border-2 border-dashed w-full h-64 md:h-80"
+              />
             </div>
             <div className="md:w-1/2 md:pl-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Story</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Our Story
+              </h2>
               <p className="text-gray-600 mb-4">
-                Founded in 2025 in Nepal by Utsab Adhikari, Kalamkunja began with a simple
-                goal: to level the playing field for knowledge sharing regardless of
-                background or location.
+                Founded in 2025 in Nepal by Utsab Adhikari, Kalamkunja began
+                with a simple goal: to level the playing field for knowledge
+                sharing regardless of background or location.
               </p>
               <p className="text-gray-600">
-                Today, our platform connects creators, experts, and learners across
-                disciplines and geographies with a shared belief that knowledge
-                empowers communities.
+                Today, our platform connects creators, experts, and learners
+                across disciplines and geographies with a shared belief that
+                knowledge empowers communities.
               </p>
             </div>
           </div>
@@ -117,10 +119,7 @@ export default function AboutUs() {
         {/* Stats */}
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-xl shadow-md p-6 text-center"
-            >
+            <div key={idx} className="bg-white shadow-md p-6 text-center">
               <div className="flex justify-center mb-4">{stat.icon}</div>
               <div className="text-3xl font-bold text-gray-900 mb-2">
                 {stat.value}
@@ -132,28 +131,35 @@ export default function AboutUs() {
 
         {/* Mission & Values */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+          <div className="bg-white shadow-md p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Our Mission
+            </h2>
             <p className="text-gray-600">
-              To democratize access to knowledge. We empower creators from Nepal and
-              around the world to share expertise, build inclusive communities, and
-              advance learning.
+              To democratize access to knowledge. We empower creators from Nepal
+              and around the world to share expertise, build inclusive
+              communities, and advance learning.
             </p>
           </div>
-          <div className="bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Values</h2>
+          <div className="bg-white shadow-md p-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Our Values
+            </h2>
             <ul className="space-y-4 text-gray-600">
               <li>
                 <strong>Accessibility:</strong> Knowledge tools for everyone.
               </li>
               <li>
-                <strong>Quality:</strong> Thoughtful writing and expert insights.
+                <strong>Quality:</strong> Thoughtful writing and expert
+                insights.
               </li>
               <li>
-                <strong>Community:</strong> Building a supportive global network.
+                <strong>Community:</strong> Building a supportive global
+                network.
               </li>
               <li>
-                <strong>Innovation:</strong> Continuously improving how we learn.
+                <strong>Innovation:</strong> Continuously improving how we
+                learn.
               </li>
             </ul>
           </div>
@@ -166,11 +172,12 @@ export default function AboutUs() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-xl shadow-md overflow-hidden"
-              >
-                <div className="bg-gray-200 border-2 border-dashed w-full h-48" />
+              <div key={idx} className="bg-white shadow-md overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png"
+                 alt={`${member.name} - Kalamkunja`}
+                  className="bg-gray-200 border-2 border-dashed w-full h-48"
+                />
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900">
                     {member.name}
@@ -184,11 +191,11 @@ export default function AboutUs() {
         </section>
 
         {/* Call to Action */}
-        <section className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl shadow-lg p-8 text-center text-white">
+        <section className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-4">Join Our Mission</h2>
           <p className="max-w-2xl mx-auto mb-6 text-blue-100">
-            We’re always looking for passionate creators, leaders, and innovators who
-            believe in open access to knowledge.
+            We’re always looking for passionate creators, leaders, and
+            innovators who believe in open access to knowledge.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition">

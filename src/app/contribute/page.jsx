@@ -25,7 +25,7 @@ export default function Contribute() {
   return (
     <>
       <div className="">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
               Contribute to Kalamkunja
@@ -36,10 +36,10 @@ export default function Contribute() {
             </p>
           </div>
 
-          <div className="bg-white shadow-lg rounded-2xl overflow-hidden">
+          <div className="bg-white shadow-lg overflow-hidden">
             <div className="p-4 sm:p-6 lg:p-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-12">
-                <div className="bg-blue-50 rounded-lg p-6 transition-all duration-300 hover:shadow-md">
+                <div className="bg-blue-50 p-6 transition-all duration-300 hover:shadow-md">
                   <div className="flex items-center mb-4">
                     <div className="bg-blue-100 p-3 rounded-full mr-4">
                       <FaPen className="text-blue-600 text-xl" />
@@ -60,7 +60,7 @@ export default function Contribute() {
                   </ul>
                 </div>
 
-                <div className="bg-green-50 rounded-lg p-6 transition-all duration-300 hover:shadow-md">
+                <div className="bg-green-50 p-6 transition-all duration-300 hover:shadow-md">
                   <div className="flex items-center mb-4">
                     <div className="bg-green-100 p-3 rounded-full mr-4">
                       <FaCode className="text-green-600 text-xl" />
@@ -81,7 +81,7 @@ export default function Contribute() {
                   </ul>
                 </div>
 
-                <div className="bg-yellow-50 rounded-lg p-6 transition-all duration-300 hover:shadow-md">
+                <div className="bg-yellow-50 p-6 transition-all duration-300 hover:shadow-md">
                   <div className="flex items-center mb-4">
                     <div className="bg-yellow-100 p-3 rounded-full mr-4">
                       <FaBug className="text-yellow-600 text-xl" />
@@ -102,7 +102,7 @@ export default function Contribute() {
                   </ul>
                 </div>
 
-                <div className="bg-purple-50 rounded-lg p-6 transition-all duration-300 hover:shadow-md">
+                <div className="bg-purple-50  p-6 transition-all duration-300 hover:shadow-md">
                   <div className="flex items-center mb-4">
                     <div className="bg-purple-100 p-3 rounded-full mr-4">
                       <FaLightbulb className="text-purple-600 text-xl" />
@@ -124,7 +124,7 @@ export default function Contribute() {
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-xl p-6 mb-8">
+              <div className="bg-gray-50 p-6 mb-8">
                 <div className="flex items-center mb-4">
                   <div className="bg-indigo-100 p-3 rounded-full mr-4">
                     <FaHandshake className="text-indigo-600 text-xl" />
@@ -163,7 +163,7 @@ export default function Contribute() {
                       <li>Submit your first pull request</li>
                     </ol>
                     <Link
-                      href="https://github.com/Kalamkunja"
+                      href="https://github.com/utsab-adhikari/kalamkunja"
                       className="mt-4 inline-block px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-200"
                     >
                       Visit GitHub Repository
