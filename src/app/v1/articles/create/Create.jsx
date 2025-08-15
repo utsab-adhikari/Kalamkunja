@@ -113,7 +113,7 @@ export default function CreateArticle() {
           Create New Article
         </h1>
         <button
-          onClick={() => router.push("/admin/articles")}
+          onClick={() => router.push("/")}
           className="flex items-center px-3 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-md"
         >
           <FiX className="mr-1" /> Cancel
