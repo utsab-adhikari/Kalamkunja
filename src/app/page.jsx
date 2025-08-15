@@ -223,6 +223,51 @@ export default function Home() {
         )}
       </section>
 
+      {/* Auth Sections */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        {status === "unauthenticated" && (
+          <div className="bg-white border border-gray-200 shadow-lg p-8 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Join Our Knowledge Community
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Login or sign up to publish articles, interact with authors, and
+              be part of the Kalamkunja family.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                href="/v1/auth/login"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+              >
+                Login
+              </Link>
+              <Link
+                href="/v1/auth/signup"
+                className="px-6 py-3 bg-white border border-blue-300 text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition"
+              >
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        )}
+
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-gray-200 shadow-lg p-8 text-center mt-10">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">
+            Meet Our Authors
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Discover talented authors and explore their latest contributions to
+            our platform.
+          </p>
+          <Link
+            href="/v1/authors"
+            className="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition"
+          >
+            View Authors
+          </Link>
+        </div>
+      </section>
+
       {/* Categories Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-8">
