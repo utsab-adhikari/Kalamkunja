@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
         "Read this insightful article",
       images: [
         {
-          url: article?.featuredImage || "/default-og.jpg",
+          url: article?.featuredImage || `${process.env.baseUrl}/logo.png`,
           width: 1200,
           height: 630,
           alt: article?.title || "Article image",
@@ -43,10 +43,10 @@ export async function generateMetadata({ params }) {
         article?.excerpt ||
         article?.content?.substring(0, 160) ||
         "Read this insightful article",
-      images: [article?.featuredImage || "/default-twitter.jpg"],
+      images: [article?.featuredImage || `${process.env.baseUrl}/logo.png`],
     },
     alternates: {
-      canonical: `/v1/articles/${slug}`,
+      canonical: `${process.env.baseUrl}/v1/articles/${slug}`,
     },
   };
 }

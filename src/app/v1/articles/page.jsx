@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Read insights on Kalamkunja. Start Reading thoughtful articles and share your expertise with the world.",
   alternates: {
-    canonical: "https://Kalamkunja.com/v1/category", // adjust if your route is different
+    canonical: `${process.env.baseUrl}/v1/category`, // adjust if your route is different
   },
 };
 

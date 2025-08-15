@@ -92,7 +92,12 @@ export default function DashboardPage() {
   };
 
   if (status === "loading" || loading) {
-    return <div className="p-6 text-center">Loading dashboard...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <p className="ml-4 text-gray-700">Loading dashboard...</p>
+      </div>
+    );
   }
 
   if (!session) {
