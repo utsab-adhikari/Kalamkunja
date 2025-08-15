@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Link from "next/link";
+import { FaEye } from "react-icons/fa";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -120,16 +121,45 @@ export default function DashboardPage() {
 
       <div className="p-4 md:p-6 max-w-6xl mx-auto space-y-6">
         {/* Profile Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-5 bg-white p-4 shadow-sm border">
-          <img
-            src={session.user.image || "/default-avatar.png"}
-            alt={session.user.name || "User"}
-            className="w-20 h-20 rounded-full border shadow-sm"
-          />
-          <div>
-            <h1 className="text-2xl font-bold">{session.user.name}</h1>
-            <h1 className="text-sm font-bold">{session.user.isVerified}</h1>
-            <p className="text-gray-500 text-sm">User ID: {session.user.id}</p>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 bg-white p-6 rounded-lg shadow-sm border border-gray-200 w-full">
+          {/* Profile Image & Info */}
+          <div className="flex items-center gap-4 w-full md:w-auto">
+            <img
+              src={session.user.image || `${process.env.baseUrl}/logo.png`}
+              alt={session.user.name || "User"}
+              className="w-20 h-20 rounded-full border shadow-sm object-cover"
+            />
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-2xl font-bold text-gray-900">
+                  {session.user.name}
+                </h1>
+                {session.user.isVerified && (
+                  <span className="flex items-center gap-1 bg-blue-50 text-blue-600 text-xs font-medium px-2 py-1 rounded-full border border-blue-200">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      className="w-4 h-4"
+                    >
+                      <path d="M9 16.2l-3.5-3.5 1.4-1.4L9 13.4l7.1-7.1 1.4 1.4z" />
+                    </svg>
+                    Verified
+                  </span>
+                )}
+              </div>
+              <p className="text-gray-500 text-sm">
+                User ID: <span className="font-medium">{session.user.id}</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Profile Visits */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 flex flex-col items-center text-center min-w-[100px]">
+            <p className="text-sm text-gray-500">Profile Visits</p>
+            <p className="text-lg font-bold text-gray-900">
+              {dashboardData.profileViews}
+            </p>
           </div>
         </div>
 
@@ -174,22 +204,23 @@ export default function DashboardPage() {
         </div>
 
         {/* Tab Content */}
-        <div>
+        <div className="w-full max-w-full">
           {activeTab === "articles" && (
             <Section title="Published Articles">
               {articles?.published?.length ? (
-                <div className="grid gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   {articles.published.map((article) => (
-                    <ArticleCard
-                      key={article._id}
-                      article={article}
-                      menuOpen={menuOpen}
-                      setMenuOpen={setMenuOpen}
-                      onEdit={() => router.push(`/editor/${article._id}`)}
-                      onPreview={() => router.push(`/blog/${article.slug}`)}
-                      onAction={handleArticleAction}
-                      actions={["edit", "unpublish", "delete"]}
-                    />
+                    <div key={article._id} className="min-w-0">
+                      <ArticleCard
+                        article={article}
+                        menuOpen={menuOpen}
+                        setMenuOpen={setMenuOpen}
+                        onEdit={() => router.push(`/editor/${article._id}`)}
+                        onPreview={() => router.push(`/blog/${article.slug}`)}
+                        onAction={handleArticleAction}
+                        actions={["edit", "unpublish", "delete"]}
+                      />
+                    </div>
                   ))}
                 </div>
               ) : (
@@ -200,7 +231,7 @@ export default function DashboardPage() {
 
           {activeTab === "analytics" && (
             <Section title="Analytics Overview">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 <StatCard
                   title="Published Blogs"
                   value={totals?.totalBlogs || 0}
@@ -231,18 +262,19 @@ export default function DashboardPage() {
           {activeTab === "drafts" && (
             <Section title="Drafts">
               {articles?.draft?.length ? (
-                <div className="grid gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   {articles.draft.map((article) => (
-                    <ArticleCard
-                      key={article._id}
-                      article={article}
-                      menuOpen={menuOpen}
-                      setMenuOpen={setMenuOpen}
-                      onEdit={() => router.push(`/editor/${article._id}`)}
-                      onPreview={() => router.push(`/preview/${article._id}`)}
-                      onAction={handleArticleAction}
-                      actions={["edit", "publish", "delete"]}
-                    />
+                    <div key={article._id} className="min-w-0">
+                      <ArticleCard
+                        article={article}
+                        menuOpen={menuOpen}
+                        setMenuOpen={setMenuOpen}
+                        onEdit={() => router.push(`/editor/${article._id}`)}
+                        onPreview={() => router.push(`/preview/${article._id}`)}
+                        onAction={handleArticleAction}
+                        actions={["edit", "publish", "delete"]}
+                      />
+                    </div>
                   ))}
                 </div>
               ) : (
@@ -254,17 +286,18 @@ export default function DashboardPage() {
           {activeTab === "trash" && (
             <Section title="Trash">
               {articles?.trash?.length ? (
-                <div className="grid gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   {articles.trash.map((article) => (
-                    <ArticleCard
-                      key={article._id}
-                      article={article}
-                      menuOpen={menuOpen}
-                      setMenuOpen={setMenuOpen}
-                      onPreview={() => router.push(`/preview/${article._id}`)}
-                      onAction={handleArticleAction}
-                      actions={["restore", "delete-permanent"]}
-                    />
+                    <div key={article._id} className="min-w-0">
+                      <ArticleCard
+                        article={article}
+                        menuOpen={menuOpen}
+                        setMenuOpen={setMenuOpen}
+                        onPreview={() => router.push(`/preview/${article._id}`)}
+                        onAction={handleArticleAction}
+                        actions={["restore", "delete-permanent"]}
+                      />
+                    </div>
                   ))}
                 </div>
               ) : (

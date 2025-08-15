@@ -261,9 +261,9 @@ export default function Home() {
           </div>
         )}
       </section>
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="relative bg-white p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 overflow-hidden border border-gray-200 shadow-xl">
-          {/* Background image with sharp edges */}
+      <section className="mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-16">
+        <div className="relative bg-white p-6 sm:p-8 md:p-12 flex flex-col md:flex-row justify-evenly items-center md:items-start gap-6 md:gap-8 overflow-hidden border border-gray-200 shadow-xl">
+          {/* Background image */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -271,39 +271,51 @@ export default function Home() {
                 "url('https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png')",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
-              backgroundSize: "300px",
-              opacity: 0.2,
+              backgroundSize: "250px",
+              opacity: 0.15,
             }}
           />
 
           {/* Profile Image */}
-          <div className="flex-shrink-0 relative z-10">
+          <div className="flex-shrink-0 relative z-10 flex flex-col items-center md:items-start">
             <div className="relative">
               <img
                 src="https://lh3.googleusercontent.com/a/ACg8ocK-V4W5o3dbTHMoqIpxlVfslEjvRBgwroE2MnxtFOdmzMDKIxM=s96-c"
-                alt="Utsab - Creator of Kalamkunja"
-                width={200}
-                height={200}
-                className="object-cover shadow-lg border-4 border-white"
+                alt="Utsab Adhikari - Creator of Kalamkunja"
+                width={160}
+                height={160}
+                className="object-cover shadow-lg border-4 border-white rounded"
               />
               {/* Sharp corner indicators */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t-4 border-l-4 border-blue-600"></div>
-              <div className="absolute top-0 right-0 w-4 h-4 border-t-4 border-r-4 border-blue-600"></div>
-              <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-blue-600"></div>
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-blue-600"></div>
+              <div className="absolute top-0 left-0 w-3 h-3 sm:w-4 sm:h-4 border-t-4 border-l-4 border-blue-600"></div>
+              <div className="absolute top-0 right-0 w-3 h-3 sm:w-4 sm:h-4 border-t-4 border-r-4 border-blue-600"></div>
+              <div className="absolute bottom-0 left-0 w-3 h-3 sm:w-4 sm:h-4 border-b-4 border-l-4 border-blue-600"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 sm:w-4 sm:h-4 border-b-4 border-r-4 border-blue-600"></div>
             </div>
+
+            {/* Name & short bio (centered on mobile) */}
+            <h3 className="text-lg sm:text-xl font-semibold text-blue-700 mt-4 text-center md:text-left">
+              Utsab Adhikari
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600 text-center md:text-left max-w-xs">
+              A passionate developer, designer, and innovator dedicated to
+              building meaningful digital experiences.
+            </p>
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 tracking-tight">
+          {/* Right Side Content */}
+          <div className="relative z-10 text-center md:text-left w-full max-w-lg">
+            {/* Title */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 tracking-tight">
               The Mind Behind the Platform
             </h2>
+
+            {/* Roles */}
             <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
               {["Admin", "Developer", "Designer", "CEO"].map((role, index) => (
                 <span
                   key={index}
-                  className="bg-blue-50 text-blue-800 px-3 py-1 text-sm font-medium border border-blue-100"
+                  className="bg-blue-50 text-blue-800 px-3 py-1 text-xs sm:text-sm font-medium border border-blue-100"
                 >
                   {role}
                 </span>
@@ -311,10 +323,10 @@ export default function Home() {
             </div>
 
             {/* Contact Info */}
-            <div className="text-gray-700 text-base space-y-3 mb-8">
+            <div className="text-gray-700 text-sm sm:text-base space-y-3 mb-8">
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <div className="bg-green-50 p-2 rounded">
-                  <FaWhatsapp className="text-green-600 text-xl" />
+                  <FaWhatsapp className="text-green-600 text-lg sm:text-xl" />
                 </div>
                 <a
                   href="https://wa.me/9867508725"
@@ -327,7 +339,7 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <div className="bg-red-50 p-2 rounded">
-                  <MdEmail className="text-red-600 text-xl" />
+                  <MdEmail className="text-red-600 text-lg sm:text-xl" />
                 </div>
                 <a
                   href="mailto:utsabadhiakri075@gmail.com"
@@ -338,40 +350,40 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <div className="bg-blue-50 p-2 rounded">
-                  <MdLocationOn className="text-blue-600 text-xl" />
+                  <MdLocationOn className="text-blue-600 text-lg sm:text-xl" />
                 </div>
                 <span className="font-medium">Kathmandu, Nepal</span>
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-5 justify-center md:justify-start">
+            <div className="flex gap-4 sm:gap-5 justify-center md:justify-start">
               <a
                 href="https://linkedin.com/in/utsabadhikari"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-100 hover:bg-blue-100 p-3 rounded transition-colors duration-300"
+                className="bg-gray-100 hover:bg-blue-100 p-2 sm:p-3 rounded transition-colors duration-300"
                 aria-label="LinkedIn"
               >
-                <FaLinkedin className="text-blue-700 text-xl" />
+                <FaLinkedin className="text-blue-700 text-lg sm:text-xl" />
               </a>
               <a
                 href="https://github.com/utsabadhikari"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-100 hover:bg-gray-200 p-3 rounded transition-colors duration-300"
+                className="bg-gray-100 hover:bg-gray-200 p-2 sm:p-3 rounded transition-colors duration-300"
                 aria-label="GitHub"
               >
-                <FaGithub className="text-gray-800 text-xl" />
+                <FaGithub className="text-gray-800 text-lg sm:text-xl" />
               </a>
               <a
                 href="https://utsab-ad.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-100 hover:bg-green-100 p-3 rounded transition-colors duration-300"
+                className="bg-gray-100 hover:bg-green-100 p-2 sm:p-3 rounded transition-colors duration-300"
                 aria-label="Website"
               >
-                <FaGlobe className="text-green-600 text-xl" />
+                <FaGlobe className="text-green-600 text-lg sm:text-xl" />
               </a>
             </div>
           </div>

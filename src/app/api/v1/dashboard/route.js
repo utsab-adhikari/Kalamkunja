@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Article from "@/models/articleModel";
+import User from "@/models/userModel";
 
 export async function GET(request) {
   try {
@@ -24,6 +25,9 @@ export async function GET(request) {
       { authorId: id },
       "title publishType createdAt updatedAt likes views featuredImage"
     );
+
+    const user = await User.findById(id);
+    const profileViews = user.views.length;
 
     const articles = {
       published: [],
@@ -57,6 +61,7 @@ export async function GET(request) {
         totalBlogs,
       },
       articles,
+      profileViews,
     });
 
   } catch (error) {
