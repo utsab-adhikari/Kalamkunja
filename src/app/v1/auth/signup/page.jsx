@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Create your Kalamkunja account and become part of a knowledge-driven community. Share, learn, and grow together.",
   alternates: {
-    canonical: "https://Kalamkunja.com/signup",
+    canonical: `${process.env.baseUrl}/v1/auth/signup`,
   },
 };
 

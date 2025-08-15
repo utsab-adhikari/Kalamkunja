@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
         title: "Profile Not Found | Kalamkunja",
         description:
           "The requested user profile could not be found on Kalamkunja.",
-        images: [`${process.env.baseUrl}/images/profile-not-found.jpg`],
+        images: [`${process.env.baseUrl}/logo.png`],
       },
     };
   }

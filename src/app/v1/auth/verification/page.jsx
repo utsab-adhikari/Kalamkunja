@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Verify your Email account to read, write, and engage with insightful articles from across disciplines.",
   alternates: {
-    canonical: "https://Kalamkunja.com/v1/verification",
+    canonical: `${process.env.baseUrl}/v1/verification`,
   },
 };
 
