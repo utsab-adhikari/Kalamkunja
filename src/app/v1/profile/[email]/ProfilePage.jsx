@@ -31,6 +31,7 @@ export default function ProfilePage({ email }) {
         setProfile(res.data.user);
         setArticles(res.data.articles);
         setError("");
+        recordView(email);
       } else {
         setError(res.data.message || "Failed to load profile");
       }
@@ -40,6 +41,29 @@ export default function ProfilePage({ email }) {
       setLoading(false);
     }
   };
+
+  const recordView = async (email) => {
+      try {
+        const viewerId = session?.user?.id || null;
+        const ipAddress = await getIPAddress();
+  
+        await axios.post(`/api/v1/profile/${email}/view`, {
+          viewerId,
+          ipAddress,
+        });
+      } catch (err) {
+        console.error("Failed to record view:", err);
+      }
+    };
+  
+    const getIPAddress = async () => {
+      try {
+        const res = await axios.get("https://api.ipify.org?format=json");
+        return res.data.ip;
+      } catch {
+        return "unknown";
+      }
+    };
 
   // Fetch follow status separately
   const fetchFollowStatus = async () => {
