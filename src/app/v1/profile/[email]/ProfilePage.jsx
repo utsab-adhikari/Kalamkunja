@@ -249,10 +249,11 @@ export default function ProfilePage({ email }) {
     router.push(`/v1/profile/${email}`);
   };
 
-  if (loading) {
+  if (status === "loading" || loading) {
     return (
-      <div className="flex justify-center items-center h-48">
-        <p className="text-gray-500">Loading profile...</p>
+       <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <p className="ml-4 text-gray-700">Loading profile...</p>
       </div>
     );
   }
