@@ -53,7 +53,21 @@ export default function ResearchPaperPreview() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
+    <div className="">
+      <nav className="flex items-center text-sm text-gray-500 my-6 mx-10">
+        <a href="/" className="hover:text-blue-600 transition-colors">
+          Home
+        </a>
+        <span className="mx-2">/</span>
+        <a
+          href="/v1/articles"
+          className="hover:text-blue-600 transition-colors"
+        >
+          Research-Paper
+        </a>
+        <span className="mx-2">/</span>
+        <span className="text-gray-800 font-medium">Education System of Nepal</span>
+      </nav>
       {/* Hero / Meta */}
       <section className="mx-auto max-w-6xl px-4 pt-8 pb-4 grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6">
         {/* Sidebar TOC */}
