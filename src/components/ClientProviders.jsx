@@ -1,8 +1,14 @@
 // src/components/ClientProviders.jsx
 "use client";
 
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
+import RecordView from "./RecordView";
 
 export default function ClientProviders({ children }) {
-  return <SessionProvider>{children}</SessionProvider>;
+  return (
+    <SessionProvider>
+      <RecordView />
+      {children}
+    </SessionProvider>
+  );
 }
