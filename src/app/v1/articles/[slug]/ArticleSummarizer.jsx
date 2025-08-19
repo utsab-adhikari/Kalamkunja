@@ -55,7 +55,7 @@ export default function ArticleSummarizer({ content, session }) {
   };
 
   return (
-    <section className="max-w-6xl mx-4 sm:px-6 py-8 bg-white shadow-sm">
+    <section className="max-w-6xl mx-4 px-4 sm:px-6 py-8 bg-white shadow-sm">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Article Summary</h2>
       <p className="text-gray-600 mb-4">
         Quickly get a simplified, easy-to-understand summary of this article.
