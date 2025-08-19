@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { FiSave, FiUpload, FiX } from "react-icons/fi";
 import { useSession } from "next-auth/react";
 import ImageUploader from "@/components/ImageUploader";
+import toast from "react-hot-toast";
 
 export default function UpdateArticle() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function UpdateArticle() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [categories, setCategories] = useState([]);
+  const [articlE, setArticlE] = useState([]);
   const [slugEdited, setSlugEdited] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [formData, setFormData] = useState({
@@ -50,7 +52,7 @@ export default function UpdateArticle() {
         const res = await axios.get(`/api/v1/articles/${slug}`);
         if (res.data.success) {
           const article = res.data.article;
-          console.log(article);
+          setArticlE(res.data.article);
           setFormData({
             title: article.title,
             slug: article.slug,
@@ -114,6 +116,7 @@ export default function UpdateArticle() {
         ...formData,
         authorId: session.user.id,
         featuredImage: imageUrl,
+        id: articlE._id,
         author: session.user.name,
       };
 
@@ -136,7 +139,6 @@ export default function UpdateArticle() {
       setLoading(false);
     }
   };
-
 
   if (status === "loading" || fetching) {
     return (
@@ -198,7 +200,7 @@ export default function UpdateArticle() {
         </div>
 
         {/* Slug */}
-        <div className="mb-6">
+        <div className="mb-0">
           <label
             htmlFor="slug"
             className="block text-sm font-medium text-gray-700 mb-2"
@@ -211,12 +213,13 @@ export default function UpdateArticle() {
             name="slug"
             value={formData.slug}
             onChange={handleChange}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-red-300 bg-red-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="article-url-slug"
             required
-            disabled={loading}
+            disabled
           />
         </div>
+        <p className="text-sm font-semibold mb-6 text-gray-400"> <i>You cannot change the slug directly</i></p>
 
         {/* Featured Image */}
         <div className="mb-6">

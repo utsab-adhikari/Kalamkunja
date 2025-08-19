@@ -63,7 +63,7 @@ export default function Login() {
 
   return (
     <div className="flex items-center justify-center p-4 sm:p-6">
-      <div className="w-full max-w-md p-8 bg-white border border-gray-200 rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-xl">
+      <div className="w-full max-w-md p-8 bg-white border border-gray-200 shadow-lg transform transition-all duration-300 hover:shadow-xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           Welcome Back!
         </h2>

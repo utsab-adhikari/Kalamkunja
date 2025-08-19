@@ -11,12 +11,19 @@ import {
   FiShare2,
   FiX,
 } from "react-icons/fi"; // Added FiX import
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaLink } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaLink,
+  FaEdit,
+} from "react-icons/fa";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { FaRegStar } from "react-icons/fa";
 import RelatedArticles from "./RelatedArticles";
+import ArticleSummarizer from "./ArticleSummarizer";
 
 export default function ArticleDetails({ slug }) {
   const [article, setArticle] = useState(null);
@@ -159,7 +166,7 @@ export default function ArticleDetails({ slug }) {
   };
 
   // Loading state UI
-  if (loading) {
+  if (status === "loading" || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
@@ -238,6 +245,16 @@ export default function ArticleDetails({ slug }) {
               <FiEye className="mr-2 text-blue-500" />
               <span>{article.views?.length || 0} views</span>
             </div>
+
+            {session?.user?.id === article?.authorId && (
+              <Link
+                href={`/v1/articles/update/${slug}`}
+                className="flex items-center border px-2 rounded-sm bg-green-200 border-green-600"
+              >
+                <FaEdit className="mr-2 text-blue-500" />
+                Edit
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -414,6 +431,7 @@ export default function ArticleDetails({ slug }) {
           </section>
 
           <RelatedArticles catid={article.catid} id={article._id} />
+          <ArticleSummarizer content={article.content} session={session} />
         </div>
       </div>
 

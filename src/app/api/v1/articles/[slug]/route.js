@@ -42,9 +42,11 @@ export async function PUT(request, { params }) {
     await connectDB();
     const { slug } = await params;
 
+    const data = await request.json();
+
     const session = await getServerSession(authOptions);
 
-    const article = await Article.findOne({ slug });
+    const article = await Article.findById(data.id);
 
     if (!article) {
       return NextResponse.json({
@@ -55,8 +57,9 @@ export async function PUT(request, { params }) {
     }
 
     const author = await User.findById(article.authorId);
+    console.log(article.authorId);
 
-    if (session.user.id !== author._id) {
+    if (session.user.id !== author._id.toString()) {
       return NextResponse.json({
         success: false,
         status: 404,
@@ -64,7 +67,7 @@ export async function PUT(request, { params }) {
       });
     }
 
-    await Article.findByIdAndUpdate(article._id, {
+    await Article.findByIdAndUpdate(data.id, {
       slug: data.slug,
       title: data.title,
       content: data.content,
@@ -73,11 +76,12 @@ export async function PUT(request, { params }) {
       category: data.category,
     });
 
+    const newArticle = await Article.findById(data.id);
+
     return NextResponse.json({
       success: true,
       status: 200,
-      article,
-      author,
+      article: newArticle,
     });
   } catch (error) {
     console.error("Article fetch error:", error);

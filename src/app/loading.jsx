@@ -22,7 +22,7 @@ export default function LoadingUI() {
 
       {/* Text */}
       <p className="mt-4 text-gray-600 text-lg font-medium">
-        Loading articles, please wait...
+        Loading kalamkunja, please wait...
       </p>
     </div>
   );
