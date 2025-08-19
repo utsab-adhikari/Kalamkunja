@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import ProvidersWrapper from "@/components/ProvidersWraper";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
