@@ -3,6 +3,8 @@ import connectDB from "@/db/ConnectDB";
 import { NextResponse } from "next/server";
 import User from "@/models/userModel";
 import bcrypt from "bcrypt";
+import { htmlWelcome } from "@/utils/emailPage";
+import { sendEmailWelcome } from "@/utils/sendEmail";
 
 export async function PUT(request, { params }) {
   try {
@@ -43,6 +45,15 @@ export async function PUT(request, { params }) {
     user.verifyToken = undefined;
     user.verifyTokenExpiresAt = undefined;
     await user.save();
+
+    const Name = user.name;
+
+    const html = htmlWelcome(Name);
+    await sendEmailWelcome(
+      user.email,
+      "Welcome to Kalamkunja - Explore The Core",
+      html
+    );
 
     return NextResponse.json({
       status: 200,

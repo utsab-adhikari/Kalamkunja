@@ -11,10 +11,25 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async function sendEmail(to, subject, html) {
-  console.log(to)
   try {
     const info = await transporter.sendMail({
-      from: `"Verify Team" <${process.env.EMAIL_USER}>`,
+      from: `"Verify Team" <Kalamkunja>`,
+      to,
+      subject,
+      html,
+    });
+
+    console.log("✅ Email sent: %s", info.messageId);
+  } catch (error) {
+    console.error("❌ Email sending failed:", error.message);
+    throw new Error("Email sending failed");
+  }
+}
+
+export async function sendEmailWelcome(to, subject, html) {
+  try {
+    const info = await transporter.sendMail({
+      from: `"Kalamkunja" <Team>`,
       to,
       subject,
       html,

@@ -43,7 +43,6 @@ export async function GET() {
     await user.save();
 
     const html = htmlVerify(plainToken);
-    console.log(session.user.email)
     await sendEmail(session.user.email, "Verify Your Email - Kalamkunja", html);
 
     return NextResponse.json({
