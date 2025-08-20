@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "About the technologies and dependencies used in Kalamkunja",
   alternates: {
-    canonical: `${process.env.baseUrl}/about-project`,
+    canonical: `https://kalamkunja.vercel.app/about-project`,
   },
 };
 
