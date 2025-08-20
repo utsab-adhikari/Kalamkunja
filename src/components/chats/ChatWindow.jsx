@@ -12,7 +12,6 @@ export default function ChatWindow({ session, selectedUser }) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Initialize Socket.IO only once per session
   useEffect(() => {
     if (!session) return;
 
@@ -29,15 +28,15 @@ export default function ChatWindow({ session, selectedUser }) {
     return () => s.disconnect();
   }, [session]);
 
-  // Fetch chat history when selecting a user
   useEffect(() => {
     if (!selectedUser || !session) return;
 
-    fetch(`${process.env.NEXT_PUBLIC_SOCKETIO_URL}/api/messages/${session.user.email}/${selectedUser.email}`)
+    fetch(
+      `${process.env.NEXT_PUBLIC_SOCKETIO_URL}/api/messages/${session.user.email}/${selectedUser.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMessages(data);
-        scrollToBottom();
       })
       .catch(console.error);
   }, [selectedUser, session]);
@@ -52,40 +51,69 @@ export default function ChatWindow({ session, selectedUser }) {
     };
 
     socket.emit("personalMessage", msg);
-    // setMessages((prev) => [...prev, msg]);
     setText("");
-    scrollToBottom();
   };
 
   if (!selectedUser) {
     return (
       <div className="flex-1 flex justify-center items-center">
-        <h2 className="text-gray-500 text-lg">Select a user to start chatting</h2>
+        <h2 className="text-gray-500 text-lg">
+          Select a user to start chatting
+        </h2>
       </div>
     );
   }
 
   const filteredMessages = messages.filter(
     (m) =>
-      m.sender === selectedUser.email.toLowerCase() || m.receiver === selectedUser.email.toLowerCase()
+      m.sender === selectedUser.email.toLowerCase() ||
+      m.receiver === selectedUser.email.toLowerCase()
   );
 
   return (
-    <div className="flex-1 flex flex-col">
-      <div className="flex-1 overflow-y-auto p-4 border-b border-gray-300">
+    <div className="flex-1 flex flex-col h-full">
+      {/* Chat header */}
+      <div className="sticky top-15 z-10 flex justify-end items-center gap-3 p-4 border-b border-gray-300 bg-gray-50">
+        <div className="text-right">
+          <h3 className="font-semibold text-gray-800">
+            {selectedUser.name || selectedUser.email.split("@")[0]}
+          </h3>
+          <p className="text-sm text-gray-500">{selectedUser.email}</p>
+        </div>
+        <img
+          src={selectedUser.image || "/default-avatar.png"}
+          alt={selectedUser.name || selectedUser.email}
+          width={40}
+          height={40}
+          className="rounded-full object-cover"
+        />
+      </div>
+
+      {/* Messages area */}
+      <div className="flex-1 overflow-y-auto p-4">
         {filteredMessages.map((m) => (
           <div
             key={m._id || `${m.sender}-${m.receiver}-${m.text}`}
-            className={`mb-2 ${m.sender === session.user.email ? "text-right" : "text-left"}`}
+            className={`mb-2 ${
+              m.sender === session.user.email ? "text-right" : "text-left"
+            }`}
           >
-            <span className={`inline-block px-3 py-1 rounded-lg ${m.sender === session.user.email ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"}`}>
+            <span
+              className={`inline-block px-3 py-1 rounded-lg ${
+                m.sender === session.user.email
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-gray-800"
+              }`}
+            >
               {m.text}
             </span>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
-      <div className="flex p-4 border-t border-gray-300 gap-2">
+
+      {/* Input bar sticky at bottom */}
+      <div className="sticky bottom-0 p-4 border-t border-gray-300 bg-white flex items-center gap-2">
         <input
           type="text"
           value={text}
@@ -96,7 +124,7 @@ export default function ChatWindow({ session, selectedUser }) {
         <button
           onClick={sendMessage}
           disabled={!socket || !text}
-          className="bg-blue-500 text-white px-4 rounded-lg disabled:opacity-50"
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg disabled:opacity-50"
         >
           Send
         </button>
