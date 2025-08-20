@@ -1,7 +1,7 @@
 "use client";
 import React from "react"; // React is needed for JSX
 import { FaGithub, FaServer, FaCloud, FaCode, FaCogs } from "react-icons/fa";
-import { SiMongodb, SiExpress, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs } from "react-icons/si";
+import { SiMongodb, SiExpress, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiSocketdotio } from "react-icons/si";
 
 // NOTE: next/link is not available in this environment,
 // so we will use a standard <a> tag for the links.
@@ -49,6 +49,10 @@ export default function ProjectOverview() {
             <div className="flex flex-col items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 shadow-sm hover:shadow-lg transition-shadow duration-300">
               <SiMongodb className="text-3xl text-green-700" />
               <p className="mt-2 text-sm font-medium">MongoDB</p>
+            </div>
+            <div className="flex flex-col items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 shadow-sm hover:shadow-lg transition-shadow duration-300">
+              <SiSocketdotio className="text-3xl text-green-700" />
+              <p className="mt-2 text-sm font-medium">Socket IO</p>
             </div>
           </div>
         </section>
@@ -113,6 +117,18 @@ export default function ProjectOverview() {
               <div>
                 <h3 className="font-semibold">Backend (Express)</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">API, authentication, and AI task management.</p>
+              </div>
+            </a>
+            <a
+              href="https://github.com/utsab-adhikari/kalamkunja-socket"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow hover:shadow-lg transition-shadow duration-300 flex items-center gap-3"
+            >
+              <FaGithub className="text-2xl text-gray-800 dark:text-gray-200" />
+              <div>
+                <h3 className="font-semibold">Socket IO (Express)</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Real time chat and Community</p>
               </div>
             </a>
           </div>
