@@ -38,7 +38,7 @@ https://kalamkunja.vercel.app
 
 ```bash
 # Clone the repo
-git clone https://github.com/utsab-adhikari/kalamkunja.git
+git clone https://github.com/utsab-adhikari/Kalamkunja.git
 
 # Move into project folder
 cd kalamkunja
