@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="https://kalamkunja.vercel.app/logo_1.png" 
+       alt="KalamKunja Logo"/>
+</p>
 
-## Getting Started
+## KalamKunja - Next Frontend
 
-First, run the development server:
+🚀 **KalamKunja** is a modern article & community platform built with **Next.js**.  
+This repository hosts the **frontend** part of the application, designed to be clean, fast, and SEO-optimized.
 
+🔗 **Live Demo:**
+https://kalamkunja.vercel.app
+
+---
+
+## ✨ Features
+- 📝 Article publishing & management  
+- 🎨 Minimal yet professional UI with Tailwind CSS  
+- 🔍 SEO-optimized pages for better visibility  
+- 👤 User authentication (Signup/Login/Logout)  
+- 📊 Personal dashboard with analytics  
+- 📱 Fully responsive design  
+
+---
+
+## 🛠️ Tech Stack
+- **Framework:** Next.js (App Router)  
+- **Styling:** Tailwind CSS + ShadCN UI  
+- **Auth:** NextAuth
+- **Deployment:** Vercel  
+
+---
+
+## 🚀 Getting Started
 ```bash
+# Clone the repo
+git clone https://github.com/utsab-adhikari/kalamkunja.git
+
+# Move into project folder
+cd kalamkunja
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
