@@ -143,6 +143,19 @@ META_DESCRIPTION: <your meta description>
             that you can copy or download.
           </p>
         </header>
+        {session && session.user && (
+          <section className="mb-6 text-center">
+            <Link
+              href="/v1/ai/studio/saved"
+              className="inline-block px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+            >
+              View Saved Articles
+            </Link>
+            <p className="mt-2 text-gray-500 text-sm">
+              Access your previously generated articles anytime in one place.
+            </p>
+          </section>
+        )}
 
         <section className="bg-white shadow-sm border border-gray-200 p-6">
           <div>
