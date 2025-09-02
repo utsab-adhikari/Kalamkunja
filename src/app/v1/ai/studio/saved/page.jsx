@@ -82,12 +82,23 @@ const Page = () => {
     return { metaTitle, metaDescription, body };
   };
 
-  if (loading) {
+  if (status === "loading" && loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="flex items-center gap-3">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
           <p className="text-gray-700">Loading your articles...</p>
+        </div>
+      </div>
+    );
+  }
+
+   if (status === "unauthenticated") {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="flex items-center gap-3">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
+          <p className="text-gray-700">Unauthenticated User Spotted...</p>
         </div>
       </div>
     );
