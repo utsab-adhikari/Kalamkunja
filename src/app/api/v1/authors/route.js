@@ -11,12 +11,13 @@ export async function GET() {
 
     const authorsWithArticles = await Article.distinct("authorId");
 
-    const profiles = users.map((user) => ({
-      ...user.toObject(),
-      profile: authorsWithArticles.some(
-        (authorId) => authorId.toString() === user._id.toString()
-      ),
-    }));
+    const profiles = users
+      .map((user) => ({
+        ...user.toObject(),
+        profile: authorsWithArticles.some(
+          (authorId) => authorId.toString() === user._id.toString()
+        ),
+      }));
 
     return NextResponse.json({
       status: 200,

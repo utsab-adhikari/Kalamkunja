@@ -8,6 +8,7 @@ import axios from "axios";
 import { FaEye, FaThumbsUp } from "react-icons/fa";
 import { FaLinkedin, FaGithub, FaGlobe, FaWhatsapp } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
+import CategoryAccordion from "@/components/home/Categories";
 
 // Skeleton loader component
 const SkeletonCard = ({ lines = 2 }) => (
@@ -182,9 +183,10 @@ export default function Home() {
                 <div
                   className="h-48 bg-cover bg-center border-b border-gray-200"
                   style={{
-                    backgroundImage: `url(${article.featuredImage ||
+                    backgroundImage: `url(${
+                      article.featuredImage ||
                       "https://via.placeholder.com/600x300?text=No+Image"
-                      })`,
+                    })`,
                   }}
                 />
 
@@ -268,43 +270,7 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8">
-          Explore Categories
-        </h2>
-        {loadingCategories ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {Array(8)
-              .fill(0)
-              .map((_, i) => (
-                <div
-                  key={i}
-                  className="bg-white p-6 rounded-xl border border-gray-200 animate-pulse"
-                >
-                  <div className="h-5 bg-gray-200 rounded w-2/3 mb-2" />
-                  <div className="h-4 bg-gray-200 rounded w-full" />
-                </div>
-              ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {categories.map((cat) => (
-              <Link
-                key={cat._id}
-                href={`/v1/category/${cat._id}`}
-                className="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors text-center"
-              >
-                <div className="text-lg font-medium text-gray-900">
-                  {cat.category}
-                </div>
-                <p className="text-sm text-gray-500 mt-2 line-clamp-2">
-                  {cat.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        )}
-      </section>
+      <CategoryAccordion categories={categories} />
 
       {/* Kalamkunja AI Studio Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
@@ -360,20 +326,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-16">
-        <div className="relative bg-white p-6 sm:p-8 md:p-12 flex flex-col md:flex-row justify-evenly items-center md:items-start gap-6 md:gap-8 overflow-hidden border border-gray-200 shadow-xl">
-          {/* Background image */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dnh6hzxuh/image/upload/v1754571700/gbu4itwsz5wwwfaotppz.png')",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "250px",
-              opacity: 0.15,
-            }}
-          />
-
+        <div className="relative p-6 sm:p-8 md:p-12 flex flex-col md:flex-row justify-evenly items-center md:items-start gap-6 md:gap-8 overflow-hidden">
           {/* Profile Image */}
           <div className="flex-shrink-0 relative z-10 flex flex-col items-center md:items-start">
             <div className="relative">
