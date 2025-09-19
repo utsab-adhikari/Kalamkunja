@@ -413,18 +413,12 @@ export default function ArticleDetails({ slug }) {
                   <p className="text-gray-600 leading-relaxed">{author.bio}</p>
                 </div>
               </div>
-              <div className="flex items-center justify-between mt-6">
+              <div className="flex items-center justify-center mt-6">
                 <Link
                   href={`/v1/profile/${author.email}`}
                   className="border px-4 py-1 rounded-sm shadow-sm hover:shadow-md "
                 >
-                  Profile
-                </Link>
-                <Link
-                  href={`/v1/rate/author/email`}
-                  className=" px-4 py-1 rounded-sm flex items-center gap-3 border shadow-sm hover:shadow-md"
-                >
-                  Rate <FaRegStar />
+                  Visit Profile
                 </Link>
               </div>
             </div>
